@@ -20,9 +20,18 @@ import User from "./models/userSchema.js";
 import Patient from "./models/appointSchema.js";
 
 //Database Connextion
-mongoose.connect("mongodb://localhost:27017/User").then(() => {
-  console.log("User Connected Successfully");
-});
+
+// Replace '<username>', '<password>', and '<dbname>' with your MongoDB credentials and database name
+
+mongoose
+  .connect("mongodb://localhost:27017/User")
+  .then(() => {
+    console.log("Connected to MongoDB");
+    // Continue with your application logic here
+  })
+  .catch((error) => {
+    console.error("Error connecting to MongoDB:", error);
+  });
 
 const Dis = JSON.parse(fs.readFileSync("disease.json", "utf8"));
 
