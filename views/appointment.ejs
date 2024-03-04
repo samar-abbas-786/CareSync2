@@ -71,13 +71,13 @@
   </head>
   <body>
     <div class="container">
-      <h1>My Appointments</h1>
+      <h1>All Queries</h1>
       <% appointments.forEach(appointment => { %>
       <div class="appointment">
         <h2><%= appointment.name %></h2>
         <p>Email: <%= appointment.email %></p>
         <p>Phone No: <%= appointment.phone_no %></p>
-        <p>Date: <%= appointment.date %></p>
+        <p><b>Ask:</b> <%= appointment.date %></p>
       </div>
       <% }) %>
     </div>

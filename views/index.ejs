@@ -76,16 +76,57 @@
             <form action="/signup/user" method="post">
               <button type="submit">Registration</button>
             </form> -->
-          </li>
         </ul>
+      </div>
+      <div class="ham">
+        <div id="logo" onclick="myFunction()">
+          <i class="fa-solid fa-bars fa-xl" style="color: #000000"></i>
+        </div>
+
+        <div id="side" class="sidenav">
+          <div class="dropdown-content">
+            <li>
+              <form action="/disease/detect" method="get">
+                <button type="submit">Disease Detector</button>
+              </form>
+            </li>
+            <!-- <li>
+          <form action="/appoint" method="get">
+            <button type="submit">Past Queries</button>
+          </form>
+        </li> -->
+            <li>
+              <form action="/findHospitals" method="get">
+                <button type="submit">Find Hospitals</button>
+              </form>
+            </li>
+            <li>
+              <form action="/findPharmacy" method="get">
+                <button type="submit">Find Pharmacies</button>
+              </form>
+            </li>
+            <li>
+              <form
+                style="margin-bottom: 1rem"
+                action="/findDoctors"
+                method="get"
+              >
+                <button type="submit">Find Doctors</button>
+              </form>
+            </li>
+            <li id="li">
+              <form action="/appoint" method="get">
+                <button type="submit">Past Queries</button>
+              </form>
+            </li>
+          </div>
+        </div>
       </div>
     </nav>
 
-<!--HAMBURGER BAR-->
+    <!--HAMBURGER BAR-->
 
-
-
-<!--HAMBURGER BAR-->
+    <!--HAMBURGER BAR-->
 
     <div class="bottom"></div>
     <div class="hero">
@@ -145,7 +186,7 @@
               placeholder="Enter Your Phone No."
             />
             <input type="text" name="date" placeholder="Ask!!" />
-            <button>Submit</button>
+            <button id="btt">Submit</button>
           </form>
         </div>
       </div>
@@ -169,12 +210,12 @@
             <!-- <li>
               <button><a href="">Disease Detector</a></button>
             </li> -->
-            <!-- <button>
+    <!-- <button>
               <li>
                 <a href="">Registration</a>
               </li>
             </button> -->
-          <!-- </ul>
+    <!-- </ul>
         </div>
         <div class="coloumn3">
           <ul>
@@ -196,8 +237,21 @@
           </ul>
         </div>
       </div>
-    </footer> --> 
+    </footer> -->
     <hr />
     <div class="copy">&copyCareSync 2024 . All rights reserved</div>
   </body>
+  <script>
+    const side = document.getElementById("side");
+    side.style.display = "none";
+
+    function myFunction() {
+      const logo = document.getElementById("logo");
+      if (side.style.display === "none") {
+        side.style.display = "block";
+      } else {
+        side.style.display = "none";
+      }
+    }
+  </script>
 </html>
