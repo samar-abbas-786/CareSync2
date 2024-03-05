@@ -24,7 +24,7 @@ import Patient from "./models/appointSchema.js";
 // Replace '<username>', '<password>', and '<dbname>' with your MongoDB credentials and database name
 
 mongoose
-  .connect("mongodb://localhost:27017/User")
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("Connected to MongoDB");
     // Continue with your application logic here
