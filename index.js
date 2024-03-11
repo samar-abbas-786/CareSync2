@@ -12,7 +12,7 @@ import { getLatLong } from "./google-map/getLatLon.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || PORT;
 import bcrypt from "bcrypt";
 // const User = require("./models/userSchema");
 import User from "./models/userSchema.js";
@@ -24,7 +24,7 @@ import Patient from "./models/appointSchema.js";
 // Replace '<username>', '<password>', and '<dbname>' with your MongoDB credentials and database name
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URL)
   .then(() => {
     console.log("Connected to MongoDB");
     // Continue with your application logic here
@@ -271,18 +271,27 @@ app.get("/login", (req, res) => {
 app.get("/login", (req, res) => {
   res.render("login.ejs"); // Assuming your login page is named login.ejs
 });
-app.post("/user/login", async (req, res) => {
+app.post("/signup/user", async (req, res) => {
   try {
-    const { email, password } = req.body;
-    const user = await User.findOne({ email, password });
-    if (!user) {
-      res.redirect("/");
-    } else {
-      res.redirect("/home");
-    }
+    const { name, password, email } = req.body;
+    console.log("Received signup request:", req.body);
+
+    // Validate user input (e.g., check for required fields)
+
+    // Create a new user instance
+    const newUser = new User({ name, password, email });
+
+    // Save the new user to the database
+    await newUser.save();
+
+    console.log("User created successfully:", newUser);
+
+    // Redirect the user to the home page or another appropriate page
+    res.redirect("/home");
   } catch (error) {
-    console.error("Error:", error.message);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error("Error occurred during signup:", error);
+    // Render an error page or send an appropriate error response
+    res.status(500).send("Internal Server Error");
   }
 });
 

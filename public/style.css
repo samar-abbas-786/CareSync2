@@ -586,6 +586,41 @@ footer p:hover{
 .appointment {
     animation: fadeIn 1s ease forwards;
 }
+
+/* Review Section  */
+
+.review{
+    height: max-content;
+    width: 100vw;
+    background-color: #438ae7;
+   
+}
+.review label{
+    font-size: 20px;
+    font-family: sans-serif;
+
+}
+.review textarea{
+    border-radius: 5px;
+}
+.review button{
+    height: auto;
+    width: auto;
+    font-size: 17px;
+    padding: 3px;
+    border-radius: 5px;
+    background-color: white;
+    font-weight: 400;
+    color: #000000;
+    border: 1px solid white;
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+}
+.review button:hover{
+    background-color: #438ae7;
+    color: white;
+}
 /* //Responsive */
 
 @media (max-width: 610px) {
